@@ -4,7 +4,10 @@ const axios = require('axios');
 const schedule = require('node-schedule');
 
 const client = new Client({
-    authStrategy: new LocalAuth()
+    authStrategy: new LocalAuth(),
+    puppeteer: {
+    	args: ['--no-sandbox'],
+    }
 });
 
 client.on('qr', (qr) => {
